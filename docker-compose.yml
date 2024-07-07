@@ -1,0 +1,15 @@
+name: reverse-proxy
+
+services:
+  rp:
+    container_name: rp
+    build:
+      dockerfile: Dockerfile
+    networks:
+      - gamma-network
+    ports:
+      - "20000:80"
+
+networks:
+  gamma-network:
+    external: true

@@ -1,0 +1,5 @@
+FROM nginx
+RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY internal.conf /etc/nginx/nginx.conf
+COPY locations.conf /etc/nginx
+COPY custom_error.html /usr/share/nginx/html

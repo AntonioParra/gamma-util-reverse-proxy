@@ -4,11 +4,17 @@ services:
   rp:
     container_name: rp
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-external
     networks:
       - gamma-network
     ports:
       - "20000:80"
+  rp-internal:
+    container_name: rp-internal
+    build:
+      dockerfile: Dockerfile-internal
+    networks:
+      - gamma-network
 
 networks:
   gamma-network:

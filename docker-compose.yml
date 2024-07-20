@@ -1,21 +1,25 @@
-name: reverse-proxy
+name: gamma-reverse-proxy
 
 services:
   rp:
-    container_name: rp
+    container_name: gamma-rp
     build:
       dockerfile: Dockerfile-external
     networks:
       - gamma-network
+      - epsilon-network
     ports:
       - "20000:80"
   rp-internal:
-    container_name: rp-internal
+    container_name: gamma-rp-internal
     build:
       dockerfile: Dockerfile-internal
     networks:
       - gamma-network
+      - epsilon-network
 
 networks:
   gamma-network:
+    external: true
+  epsilon-network:
     external: true
